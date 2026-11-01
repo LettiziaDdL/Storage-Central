@@ -1,0 +1,419 @@
+/*
+    Author: Lettizia Diaz de Leon
+    Date: 10/31/2026
+    Purpose: Styles the Willow & Pine Crafts storefront. This file sets the warm
+    handmade color theme, the product grid, the floating shopping cart, the
+    out-of-stock look, the add-to-cart animations, and the responsive layout.
+*/
+
+/* =========================================
+     CRAFT STORE THEME PROVIDED
+     YOU MAY EDIT THIS FILE
+========================================= */
+
+/* =========================================
+     RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================================
+     BODY
+========================================= */
+
+body {
+    background: #f5f1ea;
+    color: #3f3128;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* =========================================
+     HEADER
+========================================= */
+
+header {
+    background: #6b4f3a;
+    color: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+    position: sticky;
+    top: 0;
+    z-index: 500;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cart-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .5rem 1rem;
+    border: 2px solid #d7c3ab;
+    border-radius: 10px;
+}
+
+.cart-link:hover,
+.cart-link:focus {
+    background: #8b5e3c;
+}
+
+.cart-badge {
+    background: #d97706;
+    min-width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* =========================================
+     PAGE LAYOUT
+========================================= */
+
+main {
+    padding-right: 360px;
+}
+
+/* =========================================
+     HERO
+========================================= */
+
+.welcome-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #efe6d8, #f7f3ee);
+    border-bottom: 2px solid #d7c3ab;
+}
+
+.welcome-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.products-section > h2 {
+    padding: 2rem 2rem 0;
+}
+
+/* =========================================
+     PRODUCTS
+========================================= */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.product-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+    position: relative;
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, .15);
+}
+
+.product-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.product-content {
+    padding: 1.25rem;
+}
+
+.product-content h3 {
+    margin-bottom: .75rem;
+}
+
+.price {
+    font-weight: bold;
+    color: #8b5e3c;
+    margin-top: .5rem;
+}
+
+.stock {
+    font-weight: bold;
+    color: #4d7c0f;
+}
+
+/* =========================================
+     BUTTONS
+========================================= */
+
+button {
+    width: 100%;
+    padding: .8rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 1rem;
+    background: #8b5e3c;
+    color: white;
+    transition: .3s;
+}
+
+button:hover {
+    background: #6b4f3a;
+}
+
+button:focus {
+    outline: 3px solid #0ea5e9;
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
+
+/* =========================================
+     OUT OF STOCK
+========================================= */
+
+.out-of-stock {
+    opacity: .4;
+    filter: grayscale(100%);
+    cursor: not-allowed;
+}
+
+.out-of-stock .stock {
+    color: #991b1b;
+}
+
+/* =========================================
+     TOOLTIP
+========================================= */
+
+.mouse-tooltip {
+    position: fixed;
+    pointer-events: none;
+    background: #991b1b;
+    color: white;
+    padding: .5rem .75rem;
+    border-radius: 8px;
+    opacity: 0;
+    z-index: 9999;
+}
+
+.mouse-tooltip.show {
+    opacity: 1;
+}
+
+/* =========================================
+     SHOPPING CART
+========================================= */
+
+.cart-panel {
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    bottom: 20px;
+    width: 320px;
+    overflow-y: auto;
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .15);
+    border: 2px solid #d7c3ab;
+    z-index: 400;
+}
+
+.cart-panel h2 {
+    color: #6b4f3a;
+    margin-bottom: .5rem;
+}
+
+.session-info {
+    font-size: .9rem;
+    color: #6b4f3a;
+    margin-bottom: 1rem;
+}
+
+.cart-items {
+    list-style: none;
+}
+
+.cart-item {
+    border-bottom: 1px solid #efe6d8;
+    padding: .75rem 0;
+}
+
+.cart-item-name {
+    font-weight: bold;
+}
+
+.cart-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+    margin-top: .4rem;
+}
+
+.qty-controls {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.qty-controls button,
+.remove-btn {
+    width: auto;
+    margin-top: 0;
+    padding: .25rem .65rem;
+    border-radius: 6px;
+}
+
+.remove-btn {
+    background: #991b1b;
+    font-size: .8rem;
+}
+
+.remove-btn:hover {
+    background: #7f1d1d;
+}
+
+.cart-empty {
+    color: #8a7a6d;
+    font-style: italic;
+    margin: 1rem 0;
+}
+
+.cart-summary {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid #d7c3ab;
+}
+
+.cart-total {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #8b5e3c;
+}
+
+.secondary-btn {
+    background: #a8a29e;
+}
+
+.secondary-btn:hover {
+    background: #78716c;
+}
+
+button:disabled,
+button:disabled:hover {
+    background: #c9c2bb;
+}
+
+.last-purchase {
+    margin-top: 1rem;
+    font-size: .9rem;
+    color: #6b4f3a;
+}
+
+/* =========================================
+     ADD TO CART VISUAL FEEDBACK
+========================================= */
+
+/* Green highlight on the product card that was added */
+.product-card.added {
+    box-shadow: 0 0 0 4px #4d7c0f, 0 12px 24px rgba(0, 0, 0, .15);
+}
+
+/* Bounce on the cart panel and header badge */
+.bounce {
+    animation: bounce .5s ease;
+}
+
+@keyframes bounce {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.05); }
+    60% { transform: scale(.97); }
+    100% { transform: scale(1); }
+}
+
+/* Notification message */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #4d7c0f;
+    color: white;
+    padding: .9rem 1.25rem;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity .3s ease;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.notification.show {
+    opacity: 1;
+}
+
+/* =========================================
+     FOOTER
+========================================= */
+
+footer {
+    background: #6b4f3a;
+    color: white;
+    text-align: center;
+    padding: 1.5rem 360px 1.5rem 2rem;
+    margin-top: 2rem;
+}
+
+/* =========================================
+     RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 900px) {
+    main { 
+        padding-right: 0; 
+    }
+
+    .cart-panel {
+        position: static;
+        width: auto;
+        margin: 1rem;
+    }
+
+    footer {
+        padding: 1.5rem 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    nav h1 {
+        font-size: 1.3rem;
+    }
+
+    .welcome-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .product-grid {
+        padding: 1rem;
+    }
+}

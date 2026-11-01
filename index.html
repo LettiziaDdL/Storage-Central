@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        Author: Lettizia Diaz de Leon
+        Date: 10/31/2026
+        Purpose: Home page for the Willow & Pine Crafts online storefront. It shows
+        the handmade products, a shopping cart with quantity controls, and the
+        shopper's session and last purchase information saved in browser storage.
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willow & Pine Crafts</title>
+
+    <!-- Link external stylesheet and JavaScript file -->
+    <link rel="stylesheet" href="PA_Storage-Central_StarterFile.css">
+    <script src="PA_Storage-Central_StarterFile.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Willow & Pine Crafts</h1>
+            <a href="#cart" class="cart-link" aria-label="Go to shopping cart">
+                Cart <span id="header-cart-count" class="cart-badge">0</span>
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="welcome-section">
+            <h2>Handmade With Care</h2>
+            <p id="welcome-message"></p>
+        </section>
+
+        <!-- Product cards are created with JavaScript -->
+        <section class="products-section" aria-labelledby="products-heading">
+            <h2 id="products-heading">Shop Our Crafts</h2>
+            <section id="product-grid" class="product-grid"></section>
+        </section>
+    </main>
+
+    <!-- Shopping Cart -->
+    <aside id="cart" class="cart-panel" aria-labelledby="cart-heading">
+        <h2 id="cart-heading">Your Cart</h2>
+
+        <p class="session-info">Items added this session: <span id="session-count">0</span></p>
+
+        <ul id="cart-items" class="cart-items"></ul>
+        <p id="cart-empty" class="cart-empty">Your cart is empty.</p>
+
+        <section class="cart-summary" aria-live="polite">
+            <p>Total items: <span id="cart-count">0</span></p>
+            <p class="cart-total">Total cost: <span id="cart-total">$0.00</span></p>
+        </section>
+
+        <button id="clear-cart" class="secondary-btn">Clear Cart</button>
+        <button id="checkout">Checkout</button>
+
+        <p id="last-purchase" class="last-purchase"></p>
+    </aside>
+
+    <!-- Add-to-cart notification message -->
+    <section id="notification" class="notification" role="status" aria-live="polite"></section>
+
+    <footer>
+        <p>Willow & Pine Crafts &copy; 2026</p>
+        <p>Crafted by: letdia7939</p>
+    </footer>
+</body>
+</html>
